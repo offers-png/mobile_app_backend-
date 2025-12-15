@@ -38,8 +38,13 @@ client = OpenAI(api_key=OPENAI_API_KEY) if OPENAI_API_KEY else None
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # you can tighten this later
-    allow_credentials=True,
+    allow_origins=[
+        "https://localhost",
+        "http://localhost",
+        "capacitor://localhost",
+        "ionic://localhost",
+    ],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
